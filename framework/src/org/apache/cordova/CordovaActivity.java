@@ -28,6 +28,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.LOG;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xwalk.core.internal.XWalkSettings;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -309,6 +310,8 @@ public class CordovaActivity extends Activity implements CordovaInterface {
     public void init() {
         CordovaWebView webView = makeWebView();
         this.init(webView, makeWebViewClient(webView), makeChromeClient(webView));
+        XWalkSettings settings = this.appView.getSettings();
+        settings.setSupportMultipleWindows(false);
     }
 
     /**
